@@ -2,6 +2,8 @@ nltk
 tensorflow
 keras
 autokeras
+flask
+flask_restful
 requests
 gunicorn==19.9.0
 aniso8601==8.0.0

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template
 from flask_restful import Api, Resource, reqparse, abort
 import numpy as np
 import autokeras
@@ -19,36 +19,27 @@ api = Api(app)
 
 model = keras.models.load_model('./Model/English Suicide Prevention Model')
 post_args = reqparse.RequestParser()
+ps = PorterStemmer()
 post_args.add_argument("tweet", type=str, help="Need Tweet predict", required=True)
-
 text = {}
 
+@app.route("/")
+def index():
+	return render_template("index.html")
+
 def preprocessing(args):
-    # Case Folding
-    # Convert text to lowercase
     args["tweet"] = args["tweet"].lower()
-    # Remove Twitter megatext_clean Link and RT word
-    args["tweet"] = args["tweet"].replace(r'http\S+', '').replace(
-        r'www\S+', '').replace(r'rt', '')
-    # Remove number
+    args["tweet"] = args["tweet"].replace(r'http\S+', '').replace(r'www\S+', '').replace(r'rt', '')
     args["tweet"] = args["tweet"].replace('\d+', '')
-    # Remove Punctuation
     args["tweet"] = args["tweet"].replace('[^\w\s]', '')
-    # Remove Whitespaces
     args["tweet"] = args["tweet"].strip()
-    # Tokenization
     args["tweet"] = nltk.word_tokenize(args["tweet"])
-    # StopWords Removal
     stop_words = stopwords.words('english')
     args["tweet"] = [item for item in args["tweet"] if item not in stop_words]
-    # Stemming
-    ps = PorterStemmer()
     args["tweet"] = [ps.stem(item) for item in args["tweet"]]
-    # Lemmetizer
     lemmatizer = WordNetLemmatizer()
     args["tweet"] = [lemmatizer.lemmatize(item) for item in args["tweet"]]
     return args
-
 
 class Posts(Resource):
     def post(self):

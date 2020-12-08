@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+  <title>Suicide Detection</title>
+</head>
+
+<body>
+  <!-- navabr -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="#">Suicide Prediction</a>
+    </div>
+  </nav>
+
+  <!-- main content -->
+  <div class="maincontent my-4">
+    <div class="container">
+      <!-- title -->
+      <h3>Suicide Detection from Text</h3>
+      <p>The Suicide Detection API provides access to Neural Network that can predict suicidial from text. this api build from flask framework and deploy on heroku<br>
+      by using <b>POST</b> and <code>/Posts</code> method to communicate with api.</p>
+
+      <!-- endpoint -->
+      <h6 class="my-2">API End point</h6>
+      <div class="card bg-light">
+        <code class="ms-3 card-body">POST https://dep-nn.herokuapp.com/Posts</code>
+      </div>
+      
+      <!-- parameter -->
+      <h6 class="my-2">Parameter</h6>
+      <div class="card bg-light">
+        <div class="row my-3 g-0 ms-4">
+          <div class="col-6 col-md-1"><code class="ms-1 ">tweet</code></div>
+          <div class="col-sm-6 col-md-8">"text to get prediction"</div>
+        </div>
+      </div>
+
+      <!-- how to use api -->
+      <h5 class="mt-4">How to use this api :</h5>
+      <p>Make folder <b>api.py</b>, write this code, and run it !</p>
+      <div class="card bg-light">
+        <code class="card-body ms-3">
+          import requests <br>
+          import json <br>
+          <br>
+          text = [['some text used to predict']] <br>
+          <br>
+          response = requests.post("https://dep-nn.herokuapp.com/Posts", {"tweet": text}) <br>
+          print(response.json()) <br>
+        </code>
+      </div>
+
+      <!-- json file -->
+      <p class="mt-4">the output will be json like this :</p>
+      <div class="card bg-light">
+        <code class="card-body ms-3">
+          { <br>
+            'probability': 0.6786270141601562 <br> 
+          }
+        </code>
+      </div>
+
+      <!-- source code -->
+      <h5 class="mt-4">Source Code :</h5>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Development : <a href="https://github.com/abduhsalam/Suicide-Prevention-DTI"  class="link-secondary text-decoration-none" target="_blank">abduhsalam/Suicide-Prevention-DTI</a></li>
+        <li class="list-group-item">Deployment : <a href="https://github.com/DSamodra/scd"  class="link-secondary text-decoration-none" target="_blank">DSamodra/scd</a</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Option 1: Bootstrap Bundle with Popper -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
