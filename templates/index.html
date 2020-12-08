@@ -9,7 +9,7 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-  <title>Suicide Detection</title>
+  <title>Suicide Prevention</title>
 </head>
 
 <body>
@@ -31,7 +31,7 @@
       <!-- endpoint -->
       <h6 class="my-2">API End point</h6>
       <div class="card bg-light">
-        <code class="ms-3 card-body">POST https://dep-nn.herokuapp.com/Posts</code>
+        <code class="ms-3 card-body">POST https://suicideprevention.herokuapp.com/Posts</code>
       </div>
       
       <!-- parameter -->
@@ -53,7 +53,7 @@
           <br>
           text = [['some text used to predict']] <br>
           <br>
-          response = requests.post("https://dep-nn.herokuapp.com/Posts", {"tweet": text}) <br>
+          response = requests.post("https://suicideprevention.herokuapp.com/Posts", {"tweet": text}) <br>
           print(response.json()) <br>
         </code>
       </div>
@@ -72,7 +72,7 @@
       <h5 class="mt-4">Source Code :</h5>
       <ul class="list-group list-group-flush">
         <li class="list-group-item">Development : <a href="https://github.com/abduhsalam/Suicide-Prevention-DTI"  class="link-secondary text-decoration-none" target="_blank">abduhsalam/Suicide-Prevention-DTI</a></li>
-        <li class="list-group-item">Deployment : <a href="https://github.com/DSamodra/scd"  class="link-secondary text-decoration-none" target="_blank">DSamodra/scd</a</li>
+        <li class="list-group-item">Deployment : <a href="https://github.com/DSamodra/suicideprevention"  class="link-secondary text-decoration-none" target="_blank">DSamodra/suicideprevention</a</li>
       </ul>
     </div>
   </div>
